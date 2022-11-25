@@ -1,0 +1,17 @@
+type Example interface {
+	Foo(string) (testing.T, error)
+	Dequeue(ctx context.Context, req *DequeueRequest) (*DequeueResponse, error)
+}
+
+type MockExample struct {
+	FooFn func(a string) (testing.T, error)
+	DequeueFn func(ctx context.Context, req *DequeueRequest) (*DequeueResponse, error)
+}
+
+func (o MockExample) Foo(a string) (testing.T, error) {
+	return o.FooFn(a)
+}
+
+func (o MockExample) Dequeue(ctx context.Context, req *DequeueRequest) (*DequeueResponse, error) {
+	return o.DequeueFn(ctx, req)
+}

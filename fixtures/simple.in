@@ -1,0 +1,4 @@
+type Example interface {
+	Foo(string) (testing.T, error)
+	Dequeue(ctx context.Context, req *DequeueRequest) (*DequeueResponse, error)
+}

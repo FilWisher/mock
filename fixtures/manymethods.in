@@ -1,0 +1,5 @@
+type ManyMethods interface {
+    One(string) (string, int)
+    Two(string, hello.There) (_ string, n int)
+    Three(string, *foo.Bar) error
+}

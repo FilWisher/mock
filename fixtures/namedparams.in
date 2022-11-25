@@ -1,0 +1,3 @@
+type NamedParams interface {
+    Method(named string) (err error, alsonamed string)
+}

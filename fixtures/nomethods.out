@@ -1,0 +1,4 @@
+type NoMethods interface {}
+
+type MockNoMethods struct {
+}

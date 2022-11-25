@@ -1,0 +1,23 @@
+type ManyMethods interface {
+    One(string) (string, int)
+    Two(string, hello.There) (_ string, n int)
+    Three(string, *foo.Bar) error
+}
+
+type MockManyMethods struct {
+	OneFn func(a string) (string, int)
+	TwoFn func(a string, b hello.There) (_ string, n int)
+	ThreeFn func(a string, b *foo.Bar) error
+}
+
+func (o MockManyMethods) One(a string) (string, int) {
+	return o.OneFn(a)
+}
+
+func (o MockManyMethods) Two(a string, b hello.There) (_ string, n int) {
+	return o.TwoFn(a, b)
+}
+
+func (o MockManyMethods) Three(a string, b *foo.Bar) error {
+	return o.ThreeFn(a, b)
+}

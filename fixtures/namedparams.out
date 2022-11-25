@@ -1,0 +1,11 @@
+type NamedParams interface {
+    Method(named string) (err error, alsonamed string)
+}
+
+type MockNamedParams struct {
+	MethodFn func(named string) (err error, alsonamed string)
+}
+
+func (o MockNamedParams) Method(named string) (err error, alsonamed string) {
+	return o.MethodFn(named)
+}

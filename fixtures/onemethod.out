@@ -1,0 +1,11 @@
+type OneMethod interface {
+    Hello(string)
+}
+
+type MockOneMethod struct {
+	HelloFn func(a string) 
+}
+
+func (o MockOneMethod) Hello(a string)  {
+	return o.HelloFn(a)
+}
